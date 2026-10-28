@@ -1,3 +1,7 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Herr+Von+Muellerhoff&display=swap');
+
+/* Reset */
 *, 
 *::before, 
 *::after {
@@ -6,7 +10,255 @@
   padding: 0;
 }
 
+/* Glowing text */
+:root {
+    --glow-shadow:
+        0 0 5px #fff,
+        0 0 10px #f00,
+        0 0 20px #ff2244,
+        0 0 40px #ff2244,
+        0 0 80px #ff2244;
+}
+
+.glowing-text {
+    font-family: "Herr Von Muellerhoff", cursive;
+    color: #f00;
+    text-shadow: var(--glow-shadow);
+}
+
+#about p::first-letter,
+.menu-item-description::first-letter {
+    color: #f00;
+    text-shadow: var(--glow-shadow);
+    font-family: "Herr Von Muellerhoff", cursive;
+}
+
+/* Page Container */
 #page-container {
     min-height: 100vh;
-    background-color: cornflowerblue;
+    background-image: url("./images/mountain.jpg");
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+/* Header */
+header {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+
+    padding: 1rem;
+    background-color: darkgreen;
+    border-bottom: 5px solid black;
+}
+
+header h2 {
+    text-decoration: underline;
+    color: linen;
+    font-size: 2rem;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+/* Main */
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main | Title */
+#title {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#title-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+}
+
+#title-text h2{
+    color: black;
+}
+
+#title h3 {
+    font-weight: 400;
+    font-style: normal;
+    font-size: 6rem;
+}
+
+#title h2 {
+    font-size: 3rem;
+}
+
+/* Main | About */
+
+#about p {
+    text-indent: 5%;
+    font-size: 1.5rem;
+}
+
+#about p::first-letter {
+    font-size: 3rem;
+}
+
+/* Main | Cards */
+#content {
+    min-height: 100%;
+}
+
+.content-to-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+.content-to-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    min-height: 50vh;
+    width: 80vw;
+    border-radius: 5rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 2rem;
+}
+
+.card-hero {
+    text-decoration: underline;
+    text-align: center;
+    font-size: 4rem;
+    padding: 2rem;
+}
+
+.filled {
+    background-color: linen;
+}
+
+/* Menu */
+
+#menu-card {
+    display: flex;
+    justify-content: flex-start;
+    gap: 2rem;
+}
+
+#menu-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.menu-item {
+    border: 1px solid black;
+    padding: 1rem;
+    text-align: center;
+}
+
+.menu-item-description {
+    font-size: 1rem;
+}
+
+.menu-item-description::first-letter {
+    font-size: 1.5rem;
+}
+
+.menu-item-title {
+    font-size: 1.5rem;
+    text-justify: left;
+    text-decoration: underline;
+    margin-bottom: 0.5rem;
+}
+
+.menu-item-price {
+    font-size: 0.875rem;
+}
+
+button[aria-pressed="true"] {
+    background-color: darkgreen;
+    color: linen;
+    border: 2px solid linen;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.75rem;
+    color: linen;
+    background-color: black;
+}
+
+/* Buttons */
+button {
+    padding: 0.5rem;
+}
+
+/* Forms */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#booking-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 2fr 2fr 1fr;
+
+    align-items: center;
+}
+
+#name-group {
+    grid-column: 1/4;
+    grid-row: 1/2;
+}
+
+#submit-div {
+    grid-column: 1/4;
+    grid-row: 3/4;
+
+    display: flex;
+    justify-content: center;
+}
+
+input {
+    padding: 12px;
+    width: 100%;
+    margin: 1rem 0;
+    border: 0.125rem solid black;
+    border-radius: 1rem;
+}
+
+select:hover,
+input:hover {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.94);
+}
+
+select {
+    background-color: lightgray;
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
 }
